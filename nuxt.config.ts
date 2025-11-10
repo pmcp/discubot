@@ -42,6 +42,7 @@ export default defineNuxtConfig({
     database: true,
     blob: true,
     kv: true,
+    workers: true
   },
   auth: {
     webAuthn: true,
@@ -63,6 +64,7 @@ export default defineNuxtConfig({
       },
     },
   },
+
   nuxtHubRateLimit: {
     routes: {
       '/api/auth/*': {
