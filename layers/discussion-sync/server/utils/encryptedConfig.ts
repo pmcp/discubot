@@ -5,7 +5,7 @@
  * Handles automatic encryption/decryption of sensitive fields.
  */
 
-import { encryptToken, decryptToken, isEncrypted } from '~/server/utils/encryption'
+import { encryptToken, decryptToken, isEncrypted } from '~~/server/utils/encryption'
 import type { SourceConfig } from '../adapters/base'
 
 /**

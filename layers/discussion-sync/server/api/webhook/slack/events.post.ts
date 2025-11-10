@@ -8,8 +8,8 @@
  * - Discussion creation and processing
  */
 
-import { db } from '~/server/database'
-import { discussionSyncDiscussions, discussionSyncSourceconfigs } from '~/server/database/schema'
+import { db } from '~~/server/database'
+import { discussionSyncDiscussions, discussionSyncSourceconfigs } from '~~/server/database/schema'
 import { eq } from 'drizzle-orm'
 import { getAdapter } from '../../../adapters/base'
 import { verifySlackSignature } from '../../../utils/slackSignature'
