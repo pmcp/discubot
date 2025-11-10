@@ -1,0 +1,116 @@
+{
+  "id": {
+    "type": "string",
+    "meta": {
+      "primaryKey": true,
+      "label": "ID"
+    }
+  },
+  "sourceType": {
+    "type": "string",
+    "meta": {
+      "required": true,
+      "label": "Source Type",
+      "description": "figma, slack, linear, etc."
+    }
+  },
+  "sourceThreadId": {
+    "type": "string",
+    "meta": {
+      "required": true,
+      "label": "Source Thread ID",
+      "description": "Unique ID in the source system"
+    }
+  },
+  "sourceUrl": {
+    "type": "string",
+    "meta": {
+      "required": true,
+      "label": "Source URL",
+      "description": "Deep link to the discussion"
+    }
+  },
+  "sourceConfigId": {
+    "type": "string",
+    "refTarget": "sourceConfigs",
+    "meta": {
+      "required": true,
+      "label": "Source Configuration"
+    }
+  },
+  "title": {
+    "type": "string",
+    "meta": {
+      "required": true,
+      "maxLength": 500,
+      "label": "Title"
+    }
+  },
+  "content": {
+    "type": "text",
+    "meta": {
+      "required": true,
+      "label": "Content",
+      "description": "Main discussion content"
+    }
+  },
+  "authorHandle": {
+    "type": "string",
+    "meta": {
+      "required": true,
+      "label": "Author Handle"
+    }
+  },
+  "participants": {
+    "type": "array",
+    "meta": {
+      "label": "Participants",
+      "description": "Array of participant handles"
+    }
+  },
+  "status": {
+    "type": "string",
+    "meta": {
+      "required": true,
+      "default": "pending",
+      "label": "Status",
+      "description": "pending, processing, completed, failed"
+    }
+  },
+  "threadId": {
+    "type": "string",
+    "refTarget": "threads",
+    "meta": {
+      "label": "Built Thread",
+      "description": "Reference to built thread"
+    }
+  },
+  "syncJobId": {
+    "type": "string",
+    "refTarget": "syncJobs",
+    "meta": {
+      "label": "Sync Job",
+      "description": "Reference to processing job"
+    }
+  },
+  "rawPayload": {
+    "type": "json",
+    "meta": {
+      "label": "Raw Payload",
+      "description": "Original webhook/email payload"
+    }
+  },
+  "metadata": {
+    "type": "json",
+    "meta": {
+      "label": "Metadata",
+      "description": "Source-specific metadata"
+    }
+  },
+  "processedAt": {
+    "type": "date",
+    "meta": {
+      "label": "Processed At"
+    }
+  }
+}

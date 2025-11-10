@@ -1,0 +1,153 @@
+{
+  "id": {
+    "type": "string",
+    "meta": {
+      "primaryKey": true,
+      "label": "ID"
+    }
+  },
+  "sourceId": {
+    "type": "string",
+    "refTarget": "sources",
+    "meta": {
+      "required": true,
+      "label": "Source"
+    }
+  },
+  "name": {
+    "type": "string",
+    "meta": {
+      "required": true,
+      "maxLength": 200,
+      "label": "Configuration Name",
+      "description": "Friendly name for this config"
+    }
+  },
+  "emailAddress": {
+    "type": "string",
+    "meta": {
+      "label": "Email Address",
+      "description": "For email-based sources (Figma)"
+    }
+  },
+  "emailSlug": {
+    "type": "string",
+    "meta": {
+      "label": "Email Slug",
+      "description": "team1, team2, etc."
+    }
+  },
+  "webhookUrl": {
+    "type": "string",
+    "meta": {
+      "label": "Webhook URL",
+      "description": "For webhook-based sources (Slack)"
+    }
+  },
+  "webhookSecret": {
+    "type": "string",
+    "meta": {
+      "label": "Webhook Secret",
+      "description": "For signature verification"
+    }
+  },
+  "apiToken": {
+    "type": "string",
+    "meta": {
+      "label": "API Token",
+      "description": "Encrypted source API token"
+    }
+  },
+  "notionToken": {
+    "type": "string",
+    "meta": {
+      "label": "Notion Token",
+      "description": "Encrypted Notion API token"
+    }
+  },
+  "notionDatabaseId": {
+    "type": "string",
+    "meta": {
+      "required": true,
+      "label": "Notion Database ID",
+      "description": "Target Notion database"
+    }
+  },
+  "notionFieldMapping": {
+    "type": "json",
+    "meta": {
+      "label": "Notion Field Mapping",
+      "description": "Custom field mapping config"
+    }
+  },
+  "anthropicApiKey": {
+    "type": "string",
+    "meta": {
+      "label": "Claude API Key",
+      "description": "Encrypted Anthropic API key"
+    }
+  },
+  "aiEnabled": {
+    "type": "boolean",
+    "meta": {
+      "required": true,
+      "default": true,
+      "label": "AI Enabled"
+    }
+  },
+  "aiSummaryPrompt": {
+    "type": "text",
+    "meta": {
+      "label": "AI Summary Prompt",
+      "description": "Custom prompt template"
+    }
+  },
+  "aiTaskPrompt": {
+    "type": "text",
+    "meta": {
+      "label": "AI Task Detection Prompt",
+      "description": "Custom task detection prompt"
+    }
+  },
+  "autoSync": {
+    "type": "boolean",
+    "meta": {
+      "required": true,
+      "default": true,
+      "label": "Auto Sync",
+      "description": "Automatically process incoming discussions"
+    }
+  },
+  "postConfirmation": {
+    "type": "boolean",
+    "meta": {
+      "required": true,
+      "default": true,
+      "label": "Post Confirmation",
+      "description": "Post back to source when done"
+    }
+  },
+  "active": {
+    "type": "boolean",
+    "meta": {
+      "required": true,
+      "default": true,
+      "label": "Active"
+    }
+  },
+  "onboardingComplete": {
+    "type": "boolean",
+    "meta": {
+      "required": true,
+      "default": false,
+      "label": "Onboarding Complete"
+    }
+  },
+  "sourceMetadata": {
+    "type": "json",
+    "meta": {
+      "label": "Source Metadata",
+      "description": "Source-specific configuration"
+    }
+  }
+}

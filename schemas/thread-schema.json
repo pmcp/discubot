@@ -1,0 +1,102 @@
+{
+  "id": {
+    "type": "string",
+    "meta": {
+      "primaryKey": true,
+      "label": "ID"
+    }
+  },
+  "discussionId": {
+    "type": "string",
+    "refTarget": "discussions",
+    "meta": {
+      "required": true,
+      "label": "Discussion",
+      "description": "Reference to source discussion"
+    }
+  },
+  "sourceType": {
+    "type": "string",
+    "meta": {
+      "required": true,
+      "label": "Source Type"
+    }
+  },
+  "rootMessage": {
+    "type": "json",
+    "meta": {
+      "required": true,
+      "label": "Root Message",
+      "description": "Initial message/comment"
+    }
+  },
+  "replies": {
+    "type": "json",
+    "meta": {
+      "label": "Replies",
+      "description": "Array of reply messages"
+    }
+  },
+  "totalMessages": {
+    "type": "number",
+    "meta": {
+      "label": "Total Messages",
+      "default": 1
+    }
+  },
+  "participants": {
+    "type": "array",
+    "meta": {
+      "label": "Participants"
+    }
+  },
+  "aiSummary": {
+    "type": "text",
+    "meta": {
+      "label": "AI Summary",
+      "description": "Claude-generated summary"
+    }
+  },
+  "aiKeyPoints": {
+    "type": "array",
+    "meta": {
+      "label": "AI Key Points"
+    }
+  },
+  "aiContext": {
+    "type": "text",
+    "meta": {
+      "label": "AI Context",
+      "description": "Overall context for multi-task detection"
+    }
+  },
+  "isMultiTask": {
+    "type": "boolean",
+    "meta": {
+      "label": "Is Multi-Task",
+      "default": false
+    }
+  },
+  "detectedTasks": {
+    "type": "json",
+    "meta": {
+      "label": "Detected Tasks",
+      "description": "Array of AI-detected tasks"
+    }
+  },
+  "status": {
+    "type": "string",
+    "meta": {
+      "required": true,
+      "default": "pending",
+      "label": "Status",
+      "description": "pending, analyzed, tasks_created, notified"
+    }
+  },
+  "metadata": {
+    "type": "json",
+    "meta": {
+      "label": "Metadata"
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "id": {
+    "type": "string",
+    "meta": {
+      "primaryKey": true,
+      "label": "ID"
+    }
+  },
+  "discussionId": {
+    "type": "string",
+    "refTarget": "discussions",
+    "meta": {
+      "required": true,
+      "label": "Discussion"
+    }
+  },
+  "sourceConfigId": {
+    "type": "string",
+    "refTarget": "sourceConfigs",
+    "meta": {
+      "required": true,
+      "label": "Source Config"
+    }
+  },
+  "status": {
+    "type": "string",
+    "meta": {
+      "required": true,
+      "default": "pending",
+      "label": "Status",
+      "description": "pending, processing, completed, failed, retrying"
+    }
+  },
+  "stage": {
+    "type": "string",
+    "meta": {
+      "label": "Current Stage",
+      "description": "ingestion, thread_building, ai_analysis, task_creation, notification"
+    }
+  },
+  "attempts": {
+    "type": "number",
+    "meta": {
+      "required": true,
+      "default": 0,
+      "label": "Attempts"
+    }
+  },
+  "maxAttempts": {
+    "type": "number",
+    "meta": {
+      "required": true,
+      "default": 3,
+      "label": "Max Attempts"
+    }
+  },
+  "error": {
+    "type": "text",
+    "meta": {
+      "label": "Error Message"
+    }
+  },
+  "errorStack": {
+    "type": "text",
+    "meta": {
+      "label": "Error Stack"
+    }
+  },
+  "startedAt": {
+    "type": "date",
+    "meta": {
+      "label": "Started At"
+    }
+  },
+  "completedAt": {
+    "type": "date",
+    "meta": {
+      "label": "Completed At"
+    }
+  },
+  "processingTime": {
+    "type": "number",
+    "meta": {
+      "label": "Processing Time (ms)"
+    }
+  },
+  "taskIds": {
+    "type": "array",
+    "meta": {
+      "label": "Created Task IDs",
+      "description": "Array of created task IDs"
+    }
+  },
+  "metadata": {
+    "type": "json",
+    "meta": {
+      "label": "Metadata",
+      "description": "Stage-specific data"
+    }
+  }
+}

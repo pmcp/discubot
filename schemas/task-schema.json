@@ -1,0 +1,117 @@
+{
+  "id": {
+    "type": "string",
+    "meta": {
+      "primaryKey": true,
+      "label": "ID"
+    }
+  },
+  "discussionId": {
+    "type": "string",
+    "refTarget": "discussions",
+    "meta": {
+      "required": true,
+      "label": "Discussion"
+    }
+  },
+  "threadId": {
+    "type": "string",
+    "refTarget": "threads",
+    "meta": {
+      "label": "Thread"
+    }
+  },
+  "syncJobId": {
+    "type": "string",
+    "refTarget": "syncJobs",
+    "meta": {
+      "required": true,
+      "label": "Sync Job"
+    }
+  },
+  "notionPageId": {
+    "type": "string",
+    "meta": {
+      "required": true,
+      "label": "Notion Page ID"
+    }
+  },
+  "notionPageUrl": {
+    "type": "string",
+    "meta": {
+      "required": true,
+      "label": "Notion Page URL"
+    }
+  },
+  "title": {
+    "type": "string",
+    "meta": {
+      "required": true,
+      "maxLength": 500,
+      "label": "Task Title"
+    }
+  },
+  "description": {
+    "type": "text",
+    "meta": {
+      "label": "Task Description"
+    }
+  },
+  "status": {
+    "type": "string",
+    "meta": {
+      "required": true,
+      "default": "todo",
+      "label": "Status"
+    }
+  },
+  "priority": {
+    "type": "string",
+    "meta": {
+      "label": "Priority",
+      "description": "low, medium, high"
+    }
+  },
+  "assignee": {
+    "type": "string",
+    "meta": {
+      "label": "Assignee Handle"
+    }
+  },
+  "summary": {
+    "type": "text",
+    "meta": {
+      "label": "AI Summary"
+    }
+  },
+  "sourceUrl": {
+    "type": "string",
+    "meta": {
+      "label": "Source URL",
+      "description": "Deep link back to source"
+    }
+  },
+  "isMultiTaskChild": {
+    "type": "boolean",
+    "meta": {
+      "required": true,
+      "default": false,
+      "label": "Is Multi-Task Child",
+      "description": "Created as part of multi-task detection"
+    }
+  },
+  "taskIndex": {
+    "type": "number",
+    "meta": {
+      "label": "Task Index",
+      "description": "Order in multi-task sequence"
+    }
+  },
+  "metadata": {
+    "type": "json",
+    "meta": {
+      "label": "Metadata",
+      "description": "Additional task data"
+    }
+  }
+}

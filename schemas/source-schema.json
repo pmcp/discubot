@@ -1,0 +1,96 @@
+{
+  "id": {
+    "type": "string",
+    "meta": {
+      "primaryKey": true,
+      "label": "ID"
+    }
+  },
+  "sourceType": {
+    "type": "string",
+    "meta": {
+      "required": true,
+      "label": "Source Type",
+      "description": "figma, slack, linear, github, etc."
+    }
+  },
+  "name": {
+    "type": "string",
+    "meta": {
+      "required": true,
+      "maxLength": 100,
+      "label": "Name",
+      "description": "Display name"
+    }
+  },
+  "description": {
+    "type": "text",
+    "meta": {
+      "label": "Description"
+    }
+  },
+  "adapterClass": {
+    "type": "string",
+    "meta": {
+      "required": true,
+      "label": "Adapter Class",
+      "description": "FigmaAdapter, SlackAdapter, etc."
+    }
+  },
+  "icon": {
+    "type": "string",
+    "meta": {
+      "label": "Icon",
+      "description": "Icon identifier"
+    }
+  },
+  "configSchema": {
+    "type": "json",
+    "meta": {
+      "label": "Config Schema",
+      "description": "JSON schema for source configuration"
+    }
+  },
+  "webhookPath": {
+    "type": "string",
+    "meta": {
+      "label": "Webhook Path",
+      "description": "API path for webhooks"
+    }
+  },
+  "requiresEmail": {
+    "type": "boolean",
+    "meta": {
+      "label": "Requires Email",
+      "default": false
+    }
+  },
+  "requiresWebhook": {
+    "type": "boolean",
+    "meta": {
+      "label": "Requires Webhook",
+      "default": false
+    }
+  },
+  "requiresApiToken": {
+    "type": "boolean",
+    "meta": {
+      "label": "Requires API Token",
+      "default": true
+    }
+  },
+  "active": {
+    "type": "boolean",
+    "meta": {
+      "required": true,
+      "default": true,
+      "label": "Active"
+    }
+  },
+  "metadata": {
+    "type": "json",
+    "meta": {
+      "label": "Metadata"
+    }
+  }
+}
