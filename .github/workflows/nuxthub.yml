@@ -1,0 +1,71 @@
+name: Deploy to NuxtHub
+on: push
+
+jobs:
+  deploy:
+    name: 'Deploy to NuxtHub'
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }}
+      url: ${{ steps.deploy.outputs.deployment-url }}
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Ensure NuxtHub module is installed
+        run: pnpx nuxthub@latest ensure
+
+      - name: Build application
+        run: pnpm build
+
+      - name: Deploy to NuxtHub
+        uses: nuxt-hub/action@v1
+        id: deploy
+        with:
+          project-key: essentials-v3-dzwp
+    env:
+      # Auth Utils
+      NUXT_OAUTH_GITHUB_CLIENT_ID: ${{ secrets.NUXT_OAUTH_GITHUB_CLIENT_ID }}
+      NUXT_OAUTH_GITHUB_CLIENT_SECRET: ${{ secrets.NUXT_OAUTH_GITHUB_CLIENT_SECRET }}
+      NUXT_OAUTH_GOOGLE_CLIENT_ID: ${{ secrets.NUXT_OAUTH_GOOGLE_CLIENT_ID }}
+      NUXT_OAUTH_GOOGLE_CLIENT_SECRET: ${{ secrets.NUXT_OAUTH_GOOGLE_CLIENT_SECRET }}
+      NUXT_OAUTH_DISCORD_CLIENT_ID: ${{ secrets.NUXT_OAUTH_DISCORD_CLIENT_ID }}
+      NUXT_OAUTH_DISCORD_CLIENT_SECRET: ${{ secrets.NUXT_OAUTH_DISCORD_CLIENT_SECRET }}
+      NUXT_SESSION_PASSWORD: ${{ secrets.NUXT_SESSION_PASSWORD }}
+
+      # Payment
+      PAYMENT_PROVIDER: ${{ secrets.PAYMENT_PROVIDER }}
+      NUXT_STRIPE_SECRET_KEY: ${{ secrets.NUXT_STRIPE_SECRET_KEY }}
+      NUXT_STRIPE_WEBHOOK_SECRET: ${{ secrets.NUXT_STRIPE_WEBHOOK_SECRET }}
+
+      # Email
+      RESEND_API_TOKEN: ${{ secrets.RESEND_API_TOKEN }}
+      FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
+      EMAIL_PROVIDER: ${{ secrets.EMAIL_PROVIDER }}
+
+      # App Config
+      BASE_URL: ${{ secrets.BASE_URL }}
+      APP_NAME: ${{ secrets.APP_NAME }}
+      APP_DESCRIPTION: ${{ secrets.APP_DESCRIPTION }}
+      LOGO_URL: ${{ secrets.LOGO_URL }}
+      MOCK_EMAIL: ${{ secrets.MOCK_EMAIL }}
+
+      # Twilio
+      TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+      TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+      TWILIO_PHONE_NUMBER: ${{ secrets.TWILIO_PHONE_NUMBER }}
